@@ -1,12 +1,5 @@
 use std::{error::Error, io::Read};
-
-use crate::VALID;
-
-/// "pre-processes" the contents of a file
-/// into a vector of valid Brainf*ck instructions.
-pub fn process(contents: String) -> Vec<char> {
-    contents.chars().filter(|c| VALID.contains(c)).collect()
-}
+use crate::process;
 
 pub fn interpret(contents: String) -> Result<[i32; 30000], Box<dyn Error>> {
     let instructions = process(contents);
