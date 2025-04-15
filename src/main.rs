@@ -33,6 +33,7 @@ fn main() {
             let contents = std::fs::read_to_string(input).unwrap();
             let compiled = match compiler.as_str() {
                 "python" => compile::python::compile(contents),
+                "assembly" => compile::assembly::compile(contents),
                 _ => unimplemented!("compiler not implemented")
             };
             std::fs::write(output, compiled).unwrap();
